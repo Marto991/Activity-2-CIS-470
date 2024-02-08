@@ -69,7 +69,7 @@
     function calculateFederalTax(income, filingStatus, mortgage, studentLoan, medicalExpenses) {
         let taxBrackets = getFederalTaxBrackets(filingStatus);
         let federalTax = 0;
-        let taxableIncome = income + getDeductions(filingStatus, mortgage, studentLoan, medicalExpenses);
+        let taxableIncome = income - getDeductions(filingStatus, mortgage, studentLoan, medicalExpenses);
 
         for (let i = 0; i < taxBrackets.length; i++) {
             if (taxableIncome > taxBrackets[i].lowerBound) {
